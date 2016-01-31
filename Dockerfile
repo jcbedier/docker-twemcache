@@ -10,6 +10,7 @@ RUN (cd /tmp && tar zxf twemcache.tar.gz && cd twemcache-* && ./configure --pref
 RUN rm -rf /tmp/*
 RUN groupadd twem
 RUN useradd twem -g twem
+RUN apt-get clean
 EXPOSE 11211
 ENTRYPOINT ["/usr/local/twemcache/bin/twemcache"]
 CMD ["-u", "twem", "-m", $MAXMEM]
